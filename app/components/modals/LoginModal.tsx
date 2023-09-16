@@ -19,6 +19,7 @@ const LoginModal = () => {
   const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -52,6 +53,11 @@ const LoginModal = () => {
       }
     });
   };
+
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
@@ -102,15 +108,16 @@ const LoginModal = () => {
           font-light
         '>
         <p>
-          you dont Have an account ?
+          First Time using Airbnb ?
           <span
+            onClick={toggle}
             className='
               text-neutral-800
               cursor-pointer 
               hover:underline
             '>
             {" "}
-            Sign Up
+            Create an account
           </span>
         </p>
       </div>

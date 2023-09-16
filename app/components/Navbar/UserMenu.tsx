@@ -2,7 +2,7 @@
 
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
 import useRgisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModel";
@@ -21,12 +21,18 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
   };
+  const onRent = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+    // open Rent Modal
+  }, [currentUser]);
   return (
     <div className='relative'>
       <div className='flex flex-row items-center gap-3'>
         <div
           className='hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer'
-          onClick={() => {}}>
+          onClick={onRent}>
           Airbnb your Home
         </div>
         <div
