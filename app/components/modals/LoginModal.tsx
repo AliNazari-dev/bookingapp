@@ -12,8 +12,9 @@ import Modal from "./Modal";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
 import Button from "../Button";
-import useLoginModal from "@/app/hooks/useLoginModel";
+
 import { useRouter } from "next/navigation";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const LoginModal = () => {
   const router = useRouter();

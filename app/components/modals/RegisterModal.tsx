@@ -13,8 +13,7 @@ import Input from "../inputs/Input";
 import Heading from "../Heading";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
-import LoginModal from "./LoginModal";
-import useLoginModal from "@/app/hooks/useLoginModel";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
