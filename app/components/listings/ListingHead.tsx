@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ interface ListingHeadProps {
   locationValue: string;
   imageSrc: string;
   id: string;
-  currentUser?: SafeUser | null;
+  currentUser?: SafeUser | null
 }
 
 const ListingHead: React.FC<ListingHeadProps> = ({
@@ -21,36 +21,47 @@ const ListingHead: React.FC<ListingHeadProps> = ({
   locationValue,
   imageSrc,
   id,
-  currentUser,
+  currentUser
 }) => {
   const { getByValue } = useCountries();
 
   const location = getByValue(locationValue);
 
-  return (
+  return ( 
     <>
-      <Heading title={title} subtitle={`${location?.region}, ${location?.label}`} />
-      <div
-        className='
+      <Heading
+        title={title}
+        subtitle={`${location?.region}, ${location?.label}`}
+      />
+      <div className="
           w-full
           h-[60vh]
           overflow-hidden 
           rounded-xl
           relative
-        '>
-        <Image src={imageSrc} fill className='object-cover w-full' alt='Image' />
+        "
+      >
+        <Image
+          src={imageSrc}
+          fill
+          className="object-cover w-full"
+          alt="Image"
+        />
         <div
-          className='
+          className="
             absolute
             top-5
             right-5
-          '>
-          <HeartButton listingId={id} currentUser={currentUser} />
+          "
+        >
+          <HeartButton 
+            listingId={id}
+            currentUser={currentUser}
+          />
         </div>
       </div>
     </>
-  );
-};
-
-export default ListingHead;
+   );
+}
  
+export default ListingHead;
